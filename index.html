@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hub Semi – Semiconductor Intelligence & Connections</title>
+  <meta name="description" content="Hub Semi connects semiconductor and passive electronic component manufacturers to end customers, acting as representative, distributor and intermediary." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* primary — logo lime green */
+      --green:      #44EB44;
+      --green-dark: #28C028;
+      --green-dim:  rgba(68,235,68,0.14);
+      /* logo "semi" gradient: hot-pink → purple → indigo → cyan */
+      --w-pink:     #E838F0;
+      --w-violet:   #9040CC;
+      --w-blue:     #5858B8;
+      --w-teal:     #00D0D0;
+      --w-pink-dim:   rgba(232,56,240,0.12);
+      --w-violet-dim: rgba(144,64,204,0.12);
+      --w-blue-dim:   rgba(88,88,184,0.12);
+      --w-teal-dim:   rgba(0,208,208,0.12);
+      /* gradient shorthand — mirrors logo "semi" */
+      --logo-grad: linear-gradient(90deg, #E838F0 0%, #9040CC 33%, #5858B8 66%, #00D0D0 100%);
+      /* surfaces */
+      --black:      #050608;
+      --surface:    #0C0F12;
+      --surface2:   #121820;
+      --border:     #1A2030;
+      --border-w:   rgba(232,56,240,0.18);
+      --muted:      #6E8090;
+      --text:       #E4ECF3;
+      --radius:     12px;
+      --transition: 0.25s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Utility ────────────────────────────────────────────── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--logo-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .btn-primary {
+      background: var(--logo-grad);
+      color: #fff;
+      border: none;
+    }
+    .btn-primary:hover { opacity: 0.85; color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--w-teal); color: var(--w-teal); }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 580px;
+      margin-top: 14px;
+    }
+
+
+    /* ── Nav ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,13,15,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .logo .logo-hub { color: #44EB44; }
+    .logo .logo-space { color: #44EB44; }
+    .logo .logo-semi {
+      background: linear-gradient(90deg, #E838F0 0%, #9040CC 33%, #5858B8 66%, #00D0D0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--w-teal); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 75% 35%, rgba(224,64,251,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 15% 65%, rgba(0,224,64,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 30% 35% at 55% 80%, rgba(0,188,212,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 25% 25% at 85% 75%, rgba(92,107,192,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse 20% 20% at 30% 20%, rgba(160,64,200,0.06) 0%, transparent 45%);
+    }
+    /* wafer die grid pattern */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(224,64,251,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,188,212,0.07) 1px, transparent 1px),
+        linear-gradient(rgba(92,107,192,0.04) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(160,64,200,0.04) 2px, transparent 2px);
+      background-size: 32px 32px, 32px 32px, 160px 160px, 160px 160px;
+      mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+      opacity: 0.6;
+    }
+    /* subtle iridescent shimmer on sections */
+    .wafer-line {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(68,235,68,0.3) 15%,
+        rgba(232,56,240,0.5) 35%,
+        rgba(144,64,204,0.5) 55%,
+        rgba(0,208,208,0.4) 80%,
+        transparent 100%
+      );
+    }
+    .hero-content { position: relative; max-width: 680px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(232,56,240,0.08);
+      border: 1px solid rgba(232,56,240,0.3);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      background-clip: padding-box;
+      margin-bottom: 24px;
+    }
+    .hero-badge span:last-child {
+      background: var(--logo-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--w-pink);
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-title {
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: #fff;
+    }
+    .hero-title .accent {
+      background: var(--logo-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 20px 0 36px;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 4px; }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .stat-num span { color: #44EB44; }
+    .stat-label { font-size: 13px; color: var(--muted); }
+
+    /* ── Sobre / About ──────────────────────────────────────── */
+    #sobre {
+      padding: 100px 0;
+      background: var(--surface);
+    }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sobre-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .sobre-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: var(--transition);
+    }
+    .sobre-card:hover { border-color: var(--w-pink); box-shadow: 0 0 0 1px rgba(232,56,240,0.15), 0 8px 32px rgba(232,56,240,0.08); }
+    .sobre-card.wide { grid-column: span 2; }
+    .sobre-card:nth-child(1) .icon { background: var(--w-pink-dim); }
+    .sobre-card:nth-child(1) .icon svg { stroke: var(--w-pink); }
+    .sobre-card:nth-child(2) .icon { background: var(--w-violet-dim); }
+    .sobre-card:nth-child(2) .icon svg { stroke: var(--w-violet); }
+    .sobre-card:nth-child(3) .icon { background: var(--w-teal-dim); }
+    .sobre-card:nth-child(3) .icon svg { stroke: var(--w-teal); }
+    .sobre-card .icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--green-dim);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sobre-card .icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; }
+    .sobre-card h4 { font-size: 15px; font-weight: 700; color: #fff; }
+    .sobre-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .sobre-text .section-sub { margin-bottom: 28px; }
+    .check-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .check-item .chk {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .check-item .chk svg { width: 12px; height: 12px; stroke: var(--green); fill: none; stroke-width: 3; }
+
+    /* ── Serviços / Services ────────────────────────────────── */
+    #servicos { padding: 100px 0; }
+    .servicos-header { text-align: center; margin-bottom: 60px; }
+    .servicos-header .section-sub { margin: 14px auto 0; }
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .servico-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--logo-grad);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+    .servico-card:hover { border-color: var(--border-w); box-shadow: 0 0 0 1px rgba(232,56,240,0.1), 0 12px 40px rgba(232,56,240,0.07); }
+    .servico-card:hover::before { transform: scaleX(1); }
+    /* per-card logo palette: pink → violet → blue → teal */
+    .servico-card:nth-child(1) .servico-icon { background: var(--w-pink-dim); }
+    .servico-card:nth-child(1) .servico-icon svg { stroke: var(--w-pink); }
+    .servico-card:nth-child(2) .servico-icon { background: var(--w-violet-dim); }
+    .servico-card:nth-child(2) .servico-icon svg { stroke: var(--w-violet); }
+    .servico-card:nth-child(3) .servico-icon { background: var(--w-blue-dim); }
+    .servico-card:nth-child(3) .servico-icon svg { stroke: var(--w-blue); }
+    .servico-card:nth-child(4) .servico-icon { background: var(--w-teal-dim); }
+    .servico-card:nth-child(4) .servico-icon svg { stroke: var(--w-teal); }
+    .servico-card:nth-child(5) { grid-column: span 2; }
+    .servico-card:nth-child(5) .servico-icon { background: var(--green-dim); }
+    .servico-card:nth-child(5) .servico-icon svg { stroke: var(--green); }
+    .servico-icon {
+      width: 52px; height: 52px;
+      background: var(--green-dim);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .servico-icon svg { width: 26px; height: 26px; stroke: var(--green); fill: none; stroke-width: 2; }
+    .servico-card h3 { font-size: 20px; font-weight: 700; color: #fff; }
+    .servico-card p  { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Fabricantes / Products ─────────────────────────────── */
+    #fabricantes {
+      padding: 80px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .fabricantes-header { text-align: center; margin-bottom: 48px; }
+    .fab-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .fab-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .fab-chip:hover { border-color: var(--w-blue); color: var(--w-blue); }
+
+    /* ── Como Funciona / How It Works ───────────────────────── */
+    #como-funciona { padding: 100px 0; }
+    .steps-header { text-align: center; margin-bottom: 60px; }
+    .steps-header .section-sub { margin: 14px auto 0; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps-grid::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--w-blue), var(--w-violet), var(--w-teal), transparent);
+      opacity: 0.3;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 0 0 2px var(--w-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--w-blue);
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .step h4 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .step p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── Contato / Contact ──────────────────────────────────── */
+    #contato { padding: 100px 0; }
+    .contato-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 48px;
+    }
+    .contato-header { display: flex; flex-direction: column; align-items: center; }
+    .contato-header .section-sub { margin: 14px auto 0; max-width: 560px; }
+    .email-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 52px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 680px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .email-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,56,240,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .email-card:hover {
+      border-color: var(--border-w);
+      box-shadow: 0 0 0 1px rgba(232,56,240,0.15), 0 24px 64px rgba(232,56,240,0.08);
+    }
+    .email-icon-wrap {
+      width: 64px; height: 64px;
+      background: var(--w-pink-dim);
+      border: 1px solid rgba(232,56,240,0.2);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .email-icon-wrap svg { width: 28px; height: 28px; stroke: var(--w-pink); fill: none; stroke-width: 1.8; }
+    .email-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .email-address {
+      font-size: clamp(22px, 3.5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: var(--logo-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .email-address:hover { opacity: 0.75; }
+    .email-hint {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.65;
+    }
+    .email-cta {
+      margin-top: 8px;
+    }
+    .contact-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .meta-item .ico {
+      width: 36px; height: 36px;
+      background: var(--green-dim);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .meta-item .ico svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 28px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+      max-width: 300px;
+      line-height: 1.65;
+    }
+    .footer-col h5 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--w-teal); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── Mobile Menu ────────────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      transition: var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--green); }
+    .mobile-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+      .sobre-visual { order: -1; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .servico-card:nth-child(5) { grid-column: span 1; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .steps-grid::after { display: none; }
+      .email-card { padding: 36px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+      .fab-strip { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ─────────────────────────────────────────────────── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-hub">hub</span><span class="logo-space">&nbsp;</span><span class="logo-semi">semi</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre" data-i18n="nav.about"></a></li>
+      <li><a href="#servicos" data-i18n="nav.services"></a></li>
+      <li><a href="#contato" data-i18n="nav.contact"></a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contato" class="btn btn-primary nav-cta" data-i18n="nav.cta"></a>
+    </div>
+    <button class="hamburger" id="menuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="menuClose">×</button>
+  <a href="#sobre" class="menu-link" data-i18n="nav.about"></a>
+  <a href="#servicos" class="menu-link" data-i18n="nav.services"></a>
+  <a href="#contato" class="menu-link" data-i18n="nav.contact"></a>
+  <a href="#contato" class="btn btn-primary" data-i18n="nav.cta"></a>
+</div>
+
+<!-- ─── Hero ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>🇧🇷 Brazilian Company — Global Reach</span>
+      </div>
+      <h1 class="hero-title" data-i18n-html="hero.title"></h1>
+      <p class="hero-sub" data-i18n="hero.sub"></p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span data-i18n="hero.cta1"></span>
+        </a>
+        <a href="#servicos" class="btn btn-outline">
+          <span data-i18n="hero.cta2"></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">+<span>30</span></div>
+          <div class="stat-label">Manufacturers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">+<span>100</span></div>
+          <div class="stat-label" data-i18n="hero.stat3"></div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">+<span>1M</span></div>
+          <div class="stat-label">Products delivered to end customers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ─────────────────────────────────────────────────── -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <span class="tag" data-i18n="about.tag"></span>
+        <h2 class="section-title" data-i18n="about.title"></h2>
+        <p class="section-sub" data-i18n="about.sub"></p>
+        <div class="check-list">
+          <div class="check-item">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="about.check1"></span>
+          </div>
+          <div class="check-item">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="about.check2"></span>
+          </div>
+          <div class="check-item">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="about.check3"></span>
+          </div>
+          <div class="check-item">
+            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span data-i18n="about.check4"></span>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-visual">
+        <div class="sobre-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07"/></svg>
+          </div>
+          <h4 data-i18n="about.card1h"></h4>
+          <p data-i18n="about.card1p"></p>
+        </div>
+        <div class="sobre-card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h4 data-i18n="about.card2h"></h4>
+          <p data-i18n="about.card2p"></p>
+        </div>
+        <div class="sobre-card wide">
+          <div class="icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h4 data-i18n="about.card3h"></h4>
+          <p data-i18n="about.card3p"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services ───────────────────────────────────────────────── -->
+<section id="servicos" style="position:relative;">
+  <div class="wafer-line" style="top:0;"></div>
+  <div class="container">
+    <div class="servicos-header">
+      <span class="tag" data-i18n="services.tag"></span>
+      <h2 class="section-title" data-i18n="services.title"></h2>
+      <p class="section-sub" data-i18n="services.sub"></p>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 data-i18n="services.s1h"></h3>
+        <p data-i18n="services.s1p"></p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 data-i18n="services.s3h"></h3>
+        <p data-i18n="services.s3p"></p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 data-i18n="services.s4h"></h3>
+        <p data-i18n="services.s4p"></p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 data-i18n="services.s6h"></h3>
+        <p data-i18n="services.s6p"></p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 data-i18n="services.s7h"></h3>
+        <p data-i18n="services.s7p"></p>
+      </div>
+    </div>
+  </div>
+  <div class="wafer-line" style="bottom:0;"></div>
+</section>
+
+<!-- ─── Contact ───────────────────────────────────────────────── -->
+<section id="contato">
+  <div class="container">
+    <div class="contato-wrap">
+      <div class="contato-header">
+        <span class="tag" data-i18n="contact.tag"></span>
+        <h2 class="section-title" data-i18n="contact.title"></h2>
+        <p class="section-sub" data-i18n="contact.sub"></p>
+      </div>
+      <div class="email-card">
+        <div class="email-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="email-label">Send us an email</div>
+        <a href="mailto:contact@hubsemi.com" class="email-address">contact@hubsemi.com</a>
+        <p class="email-hint">Send your portfolio, ask about representation, or just tell us about your product. We'll reply within 24 hours.</p>
+        <a href="mailto:contact@hubsemi.com" class="btn btn-primary email-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send a message
+        </a>
+      </div>
+      <div class="contact-meta">
+        <div class="meta-item">
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          São Paulo, SP, Brazil
+        </div>
+        <div class="meta-item">
+          <div class="ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          Response within 24h
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#hero" class="logo" style="font-size:26px;">
+          <span class="logo-hub">hub</span><span class="logo-space">&nbsp;</span><span class="logo-semi">semi</span>
+        </a>
+        <p data-i18n="footer.brand"></p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.nav"></h5>
+        <ul>
+          <li><a href="#sobre" data-i18n="nav.about"></a></li>
+          <li><a href="#servicos" data-i18n="nav.services"></a></li>
+          <li><a href="#contato" data-i18n="nav.contact"></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.services"></h5>
+        <ul>
+          <li><a href="#servicos" data-i18n="services.s1h"></a></li>
+          <li><a href="#servicos" data-i18n="services.s2h"></a></li>
+          <li><a href="#servicos" data-i18n="services.s5h"></a></li>
+          <li><a href="#servicos" data-i18n="services.s4h"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.copy"></span>
+      <span>São Paulo, Brazil</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Translations ─────────────────────────────────────────────── */
+const T = {
+  en: {
+    "nav.about":    "About",
+    "nav.services": "Services",
+    "nav.products": "Products",
+    "nav.how":      "How It Works",
+    "nav.contact":  "Contact",
+    "nav.cta":      "Talk to a Specialist",
+
+    "hero.badge": "Semiconductor Intelligence",
+    "hero.title": "Connecting<br/>manufacturers<br/>and clients with<br/><span class='accent'>precision.</span>",
+    "hero.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, and electronic products and their end customers across Latin America, delivering representation, distribution, and specialized intermediation.",
+    "hero.cta1":  "Send Us Your Portfolio",
+    "hero.cta2":  "Our Services",
+    "hero.stat1": "Represented manufacturers",
+    "hero.stat2": "Years of experience",
+    "hero.stat3": "Clients served",
+
+    "about.tag":   "Who We Are",
+    "about.title": "The intelligent system connecting factories and industries",
+    "about.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, and electronic products and their end customers across Latin America. We connect manufacturers to clients directly, without the need for a traditional representative or distributor.",
+    "about.check1": "Representative: official channel for manufacturers expanding in Latin America",
+    "about.check2": "Distributor: local partners handling logistics and payment conditions",
+    "about.check3": "Intermediary: a platform connecting clients and manufacturers in one place",
+    "about.check4": "End customers: electronics manufacturers and industrial buyers across Latin America",
+    "about.card1h": "Representative",
+    "about.card1p": "We act as the local representative for manufacturers that want a stronger presence in Brazil and Latin America. Our team handles commercial relationships, prospecting, and follow-up on behalf of the factory.",
+    "about.card2h": "Distributor",
+    "about.card2p": "We have partnerships with local distributors who take care of the full logistics operation for our clients, including specific payment conditions negotiated to fit each customer's needs.",
+    "about.card3h": "Intermediary",
+    "about.card3p": "We offer a system where clients can request quotes from multiple manufacturers at once, and manufacturers can view real demand from multiple buyers at the same time. Simple, transparent, and efficient for both sides.",
+
+    "services.tag":   "What We Do",
+    "services.title": "Solutions across the entire electronics supply chain",
+    "services.sub":   "From semiconductors and electronic components to finished electronic products — we connect global manufacturers to buyers across Latin America and build the strategy to make them grow.",
+    "services.s1h": "Manufacturer Representation",
+    "services.s1p": "We represent global manufacturers of semiconductors, electronic components, and finished electronic products as their official commercial arm across Brazil and Latin America, handling prospecting, relationships, and follow-up.",
+    "services.s3h": "Market Intelligence",
+    "services.s3p": "Deep market analysis covering pricing trends, supply chain dynamics, competitive landscape, and demand signals — giving manufacturers and buyers the insight they need to make smarter decisions.",
+    "services.s4h": "Sales & Technical Support",
+    "services.s4p": "End-to-end commercial and technical support: from product selection and qualification to pricing negotiation, documentation, and after-sales follow-up.",
+    "services.s6h": "Strategic Partnerships",
+    "services.s6p": "We build long-term relationships between global manufacturers and Latin American buyers, creating sustainable commercial channels with transparency and mutual value.",
+    "services.s7h": "Portfolio Analysis & Brazil Go-to-Market",
+    "services.s7p": "We evaluate your product portfolio, identify the highest-potential opportunities in the Brazilian and Latin American markets, and build a tailored go-to-market strategy — including sales projections, channel mapping, pricing guidance, regulatory overview, and a clear action plan to accelerate your growth in the region.",
+
+    "products.tag":   "Products & Lines",
+    "products.title": "Brand and technology portfolio",
+    "products.sub":   "We work with global leaders across multiple categories of electronic components.",
+    "products.note":  "Contact us to check availability of specific manufacturers and product lines.",
+    "products.chips": ["Semiconductors","Ceramic Capacitors","SMD Resistors","Inductors","Transistors","Diodes","MOSFETs","Microcontrollers","Flash Memory","Power ICs","Sensors","Connectors","Oscillators","Ferrites"],
+
+    "how.tag":   "Process",
+    "how.title": "How we work",
+    "how.sub":   "Simple, direct and efficient. From first contact to delivery.",
+    "how.s1h": "Inquiry",
+    "how.s1p": "Send us your component list or project BOM.",
+    "how.s2h": "Analysis",
+    "how.s2p": "Our team checks availability, pricing, and technical alternatives.",
+    "how.s3h": "Quotation",
+    "how.s3p": "You receive a clear proposal with price, lead time, and conditions.",
+    "how.s4h": "Delivery Arrangement",
+    "how.s4p": "Together with the client and the manufacturer, we work to find the best logistics solution and close the delivery in a way that works for everyone involved.",
+
+    "contact.tag":       "Get in Touch",
+    "contact.title":     "Ready to scale your product sales in Brazil?",
+    "contact.sub":       "Our team responds fast. Whether you're a manufacturer looking to enter the Brazilian market or a buyer searching for the right partner, tell us about your product and we'll get back to you with a clear path forward.",
+    "contact.formTitle": "Send your message",
+    "contact.fname":     "Name *",
+    "contact.fnamePh":   "Your name",
+    "contact.fcompany":  "Company",
+    "contact.fcompanyPh":"Your company",
+    "contact.femail":    "Email *",
+    "contact.fphone":    "Phone",
+    "contact.ftype":     "Type of inquiry",
+    "contact.ftype0":    "Select...",
+    "contact.ftype1":    "Portfolio submission",
+    "contact.ftype2":    "Partnership / Representation",
+    "contact.ftype3":    "Sales & go-to-market inquiry",
+    "contact.ftype4":    "Other",
+    "contact.fmsg":      "Message *",
+    "contact.fmsgPh":    "Tell us about your company and products. What markets are you targeting? What can we help you with?",
+    "contact.submit":    "Send Message",
+    "contact.success":   "✅ Message sent! We'll get back to you within 24 hours.",
+
+    "footer.brand":    "Intelligence and connections for the semiconductor, electronic component, and electronic product market. Linking manufacturers and clients with precision.",
+    "footer.nav":      "Navigation",
+    "footer.services": "Services",
+    "footer.copy":     "© 2025 Hub Semi. All rights reserved.",
+  }
+};
+
+/* ── Apply strings ────────────────────────────────────────────── */
+function applyStrings() {
+  const d = T.en;
+  document.documentElement.lang = 'en';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (d[key] !== undefined) el.textContent = d[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (d[key] !== undefined) el.innerHTML = d[key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (d[key] !== undefined) el.placeholder = d[key];
+  });
+
+  const strip = document.getElementById('fabStrip');
+  if (strip && d['products.chips']) {
+    strip.innerHTML = d['products.chips']
+      .map(c => `<div class="fab-chip">${c}</div>`)
+      .join('');
+  }
+}
+
+/* ── Mobile Menu ──────────────────────────────────────────────── */
+const menuBtn   = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuClose  = document.getElementById('menuClose');
+
+menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.menu-link').forEach(l =>
+  l.addEventListener('click', () => mobileMenu.classList.remove('open'))
+);
+
+/* ── Nav highlight on scroll ──────────────────────────────────── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--green)' : '';
+  });
+});
+
+/* ── Init ─────────────────────────────────────────────────────── */
+applyStrings();
+</script>
+</body>
+</html>
