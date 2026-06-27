@@ -291,8 +291,8 @@
       align-items: center;
     }
     .sobre-visual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 16px;
     }
     .sobre-card {
@@ -698,7 +698,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>🇧🇷 Brazilian Company — Global Reach</span>
+        <span>Brazilian Company · Global Reach</span>
       </div>
       <h1 class="hero-title" data-i18n-html="hero.title"></h1>
       <p class="hero-sub" data-i18n="hero.sub"></p>
@@ -714,16 +714,8 @@
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">+<span>30</span></div>
-          <div class="stat-label">Manufacturers</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">+<span>100</span></div>
-          <div class="stat-label" data-i18n="hero.stat3"></div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">+<span>1M</span></div>
-          <div class="stat-label">Products delivered to end customers</div>
+          <div class="stat-num"><span>$500Mi</span>+</div>
+          <div class="stat-label">Created funnel over the last decade</div>
         </div>
       </div>
     </div>
@@ -745,10 +737,6 @@
           </div>
           <div class="check-item">
             <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span data-i18n="about.check2"></span>
-          </div>
-          <div class="check-item">
-            <div class="chk"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
             <span data-i18n="about.check3"></span>
           </div>
           <div class="check-item">
@@ -764,13 +752,6 @@
           </div>
           <h4 data-i18n="about.card1h"></h4>
           <p data-i18n="about.card1p"></p>
-        </div>
-        <div class="sobre-card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <h4 data-i18n="about.card2h"></h4>
-          <p data-i18n="about.card2p"></p>
         </div>
         <div class="sobre-card wide">
           <div class="icon">
@@ -876,31 +857,6 @@
 <!-- ─── Footer ─────────────────────────────────────────────────── -->
 <footer>
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#hero" class="logo" style="font-size:26px;">
-          <span class="logo-hub">hub</span><span class="logo-space">&nbsp;</span><span class="logo-semi">semi</span>
-        </a>
-        <p data-i18n="footer.brand"></p>
-      </div>
-      <div class="footer-col">
-        <h5 data-i18n="footer.nav"></h5>
-        <ul>
-          <li><a href="#sobre" data-i18n="nav.about"></a></li>
-          <li><a href="#servicos" data-i18n="nav.services"></a></li>
-          <li><a href="#contato" data-i18n="nav.contact"></a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5 data-i18n="footer.services"></h5>
-        <ul>
-          <li><a href="#servicos" data-i18n="services.s1h"></a></li>
-          <li><a href="#servicos" data-i18n="services.s2h"></a></li>
-          <li><a href="#servicos" data-i18n="services.s5h"></a></li>
-          <li><a href="#servicos" data-i18n="services.s4h"></a></li>
-        </ul>
-      </div>
-    </div>
     <div class="footer-bottom">
       <span data-i18n="footer.copy"></span>
       <span>São Paulo, Brazil</span>
@@ -921,7 +877,7 @@ const T = {
 
     "hero.badge": "Semiconductor Intelligence",
     "hero.title": "Connecting<br/>manufacturers<br/>and clients with<br/><span class='accent'>precision.</span>",
-    "hero.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, and electronic products and their end customers across Latin America, delivering representation, distribution, and specialized intermediation.",
+    "hero.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, electronic products and their end customers across Latin America, delivering representation and specialized intermediation.",
     "hero.cta1":  "Send Us Your Portfolio",
     "hero.cta2":  "Our Services",
     "hero.stat1": "Represented manufacturers",
@@ -930,31 +886,28 @@ const T = {
 
     "about.tag":   "Who We Are",
     "about.title": "The intelligent system connecting factories and industries",
-    "about.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, and electronic products and their end customers across Latin America. We connect manufacturers to clients directly, without the need for a traditional representative or distributor.",
+    "about.sub":   "Hub Semi is the strategic link between global manufacturers of semiconductors, electronic components, electronic products and their end customers across Latin America. We connect manufacturers to clients with precision.",
     "about.check1": "Representative: official channel for manufacturers expanding in Latin America",
-    "about.check2": "Distributor: local partners handling logistics and payment conditions",
     "about.check3": "Intermediary: a platform connecting clients and manufacturers in one place",
     "about.check4": "End customers: electronics manufacturers and industrial buyers across Latin America",
     "about.card1h": "Representative",
     "about.card1p": "We act as the local representative for manufacturers that want a stronger presence in Brazil and Latin America. Our team handles commercial relationships, prospecting, and follow-up on behalf of the factory.",
-    "about.card2h": "Distributor",
-    "about.card2p": "We have partnerships with local distributors who take care of the full logistics operation for our clients, including specific payment conditions negotiated to fit each customer's needs.",
     "about.card3h": "Intermediary",
     "about.card3p": "We offer a system where clients can request quotes from multiple manufacturers at once, and manufacturers can view real demand from multiple buyers at the same time. Simple, transparent, and efficient for both sides.",
 
     "services.tag":   "What We Do",
     "services.title": "Solutions across the entire electronics supply chain",
-    "services.sub":   "From semiconductors and electronic components to finished electronic products — we connect global manufacturers to buyers across Latin America and build the strategy to make them grow.",
+    "services.sub":   "From semiconductors and passive components to finished electronic products. We connect global manufacturers to buyers across Latin America.",
     "services.s1h": "Manufacturer Representation",
-    "services.s1p": "We represent global manufacturers of semiconductors, electronic components, and finished electronic products as their official commercial arm across Brazil and Latin America, handling prospecting, relationships, and follow-up.",
+    "services.s1p": "We represent global manufacturers of semiconductors, passive components, and finished electronic products as their official commercial arm across Brazil and Latin America, handling strategy, prospecting and relationships.",
     "services.s3h": "Market Intelligence",
-    "services.s3p": "Deep market analysis covering pricing trends, supply chain dynamics, competitive landscape, and demand signals — giving manufacturers and buyers the insight they need to make smarter decisions.",
+    "services.s3p": "Deep market analysis covering pricing trends, supply chain dynamics and competitive landscape. We run monitored email marketing campaigns that show us exactly where our contacts click, giving us real behavioral data on which product families have the highest engagement and conversion probability in the Brazilian market.",
     "services.s4h": "Sales & Technical Support",
-    "services.s4p": "End-to-end commercial and technical support: from product selection and qualification to pricing negotiation, documentation, and after-sales follow-up.",
+    "services.s4p": "End-to-end commercial and technical support: from product selection and qualification to pricing negotiation, documentation, and after-sales follow-up. The most powerful sales tool is response speed. Not only in quoting, but also in getting samples into the customer's hands fast. Our engineers deliver samples quickly and stay with the client through the full testing and homologation process, from first contact to final approval of the new part.",
     "services.s6h": "Strategic Partnerships",
-    "services.s6p": "We build long-term relationships between global manufacturers and Latin American buyers, creating sustainable commercial channels with transparency and mutual value.",
+    "services.s6p": "Our goal is to build long-term partnerships, not just spot sales. We invest in relationships that grow over time, with manufacturers and buyers who share the same vision. Beyond our direct client network, we know all the key local distributors in Brazil and can channel business to the right partner whenever a broader distribution network is the best fit for the customer.",
     "services.s7h": "Portfolio Analysis & Brazil Go-to-Market",
-    "services.s7p": "We evaluate your product portfolio, identify the highest-potential opportunities in the Brazilian and Latin American markets, and build a tailored go-to-market strategy — including sales projections, channel mapping, pricing guidance, regulatory overview, and a clear action plan to accelerate your growth in the region.",
+    "services.s7p": "We evaluate your full portfolio against the real needs of the Brazilian market. From there, we identify which product families have the highest potential for success, estimate the sales funnel each one can generate, and project a conversion rate based on the competitiveness of each product line. Before we even start, our partners already have a clear picture of the numbers they can reach.",
 
     "products.tag":   "Products & Lines",
     "products.title": "Brand and technology portfolio",
@@ -975,8 +928,8 @@ const T = {
     "how.s4p": "Together with the client and the manufacturer, we work to find the best logistics solution and close the delivery in a way that works for everyone involved.",
 
     "contact.tag":       "Get in Touch",
-    "contact.title":     "Ready to scale your product sales in Brazil?",
-    "contact.sub":       "Our team responds fast. Whether you're a manufacturer looking to enter the Brazilian market or a buyer searching for the right partner, tell us about your product and we'll get back to you with a clear path forward.",
+    "contact.title":     "Ready to scale your sales in Brazil?",
+    "contact.sub":       "Our team responds fast. Whether you're a manufacturer looking to enter the Latin American market or a buyer searching for the right partner, tell us about your product and we'll get back to you with a clear path forward.",
     "contact.formTitle": "Send your message",
     "contact.fname":     "Name *",
     "contact.fnamePh":   "Your name",
@@ -995,10 +948,10 @@ const T = {
     "contact.submit":    "Send Message",
     "contact.success":   "✅ Message sent! We'll get back to you within 24 hours.",
 
-    "footer.brand":    "Intelligence and connections for the semiconductor, electronic component, and electronic product market. Linking manufacturers and clients with precision.",
+    "footer.brand":    "Representation and intermediation for the semiconductor, electronic component, and electronic product market. Linking manufacturers and clients with precision.",
     "footer.nav":      "Navigation",
     "footer.services": "Services",
-    "footer.copy":     "© 2025 Hub Semi. All rights reserved.",
+    "footer.copy":     "© 2024 Hub Semi. All rights reserved.",
   }
 };
 
